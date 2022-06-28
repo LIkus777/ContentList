@@ -17,14 +17,14 @@ fun ApplicationScreen() {
 
     NavHost(navController = navController, startDestination = NavigationTree.Splash.name) {
         composable(route = NavigationTree.Splash.name) {
-            SplashScreen()
+            SplashScreen(navController = navController)
         }
         composable(route = NavigationTree.Main.name) {
             val mainViewModel = hiltViewModel<MainViewModel>()
-            MainScreen(mainViewModel = mainViewModel)
+            MainScreen(navController = navController, mainViewModel = mainViewModel)
         }
         composable(route = NavigationTree.Finish.name) {
-            FinishScreen()
+            FinishScreen(navController = navController)
         }
     }
 }
